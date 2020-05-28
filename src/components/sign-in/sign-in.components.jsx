@@ -51,7 +51,7 @@ export default class SignIn extends Component {
             value={email}
             handleChange={handleChange}
             required
-            label='email'
+            label='Email'
           />
           <FormInput
             type='password'
@@ -59,11 +59,15 @@ export default class SignIn extends Component {
             value={password}
             handleChange={handleChange}
             required
-            label='password'
+            label='Password'
           />
           <div className='buttons'>
             <CustomButton type='submit'>Sign in</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              type='button'
+              onClick={signInWithGoogle}
+              isGoogleSignIn
+            >
               Sign in with Google
             </CustomButton>
           </div>
