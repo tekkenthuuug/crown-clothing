@@ -50,7 +50,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route exact to='/checkout' component={CheckoutPage} />
           <Route
             exact
             path='/signin'
@@ -58,6 +57,7 @@ class App extends React.Component {
               currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
             }
           />
+          <Route exact to='/checkout' component={CheckoutPage} />
         </Switch>
       </div>
     );
