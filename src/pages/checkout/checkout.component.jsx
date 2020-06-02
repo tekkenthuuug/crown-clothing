@@ -10,42 +10,48 @@ import {
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
-import './checkout.styles.scss';
+import {
+  CheckoutContainer,
+  Header,
+  HeaderBlock,
+  TestWarning,
+  Total,
+} from './checkout.styles';
 
 const CheckoutPage = ({ cartItems, cartTotal }) => {
   return (
-    <div className='checkout-page'>
-      <div className='checkout-header'>
-        <div className='header-block'>
+    <CheckoutContainer>
+      <Header>
+        <HeaderBlock>
           <span>Product</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Description</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Quantity</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Price</span>
-        </div>
-        <div className='header-block'>
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlock>
+      </Header>
       {cartItems.map((cartItem) => (
         <CheckoutItem key={cartItem.id} item={cartItem} />
       ))}
-      <div className='total'>
+      <Total>
         <span>Total: ${cartTotal}</span>
-      </div>
-      <div className='test-warning'>
+      </Total>
+      <TestWarning>
         *Stripe is working in test mode, please use following credit card from
         payment*
         <br />
         4242 4242 4242 4242 - Exp: any future date - CVV: 123
-      </div>
+      </TestWarning>
       <StripeCheckoutButton price={cartTotal} />
-    </div>
+    </CheckoutContainer>
   );
 };
 
