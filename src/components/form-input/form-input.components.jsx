@@ -3,7 +3,6 @@ import React from 'react';
 import { Group, StyledInput, StyledInputLabel } from './form-input.styles';
 
 const FormInput = ({ handleChange, label, ...otherProps }) => {
-  console.log(otherProps);
   return (
     <Group>
       <StyledInput onChange={handleChange} {...otherProps} />

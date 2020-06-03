@@ -45,7 +45,7 @@ const CheckoutPage = ({ cartItems, cartTotal }) => {
         <span>Total: ${cartTotal}</span>
       </Total>
       <TestWarning>
-        *Stripe is working in test mode, please use following credit card from
+        *Stripe is working in test mode, please use following credit card for
         payment*
         <br />
         4242 4242 4242 4242 - Exp: any future date - CVV: 123
