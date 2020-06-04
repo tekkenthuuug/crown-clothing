@@ -31,7 +31,6 @@ class SignIn extends Component {
     const { email, password } = this.state;
 
     emailSighInStart(email, password);
-    this.setState(initialState);
   };
 
   handleChange = (e) => {
