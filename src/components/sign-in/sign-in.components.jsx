@@ -11,13 +11,17 @@ import {
 
 import { Buttons, SignInContainer, Title } from './sign-in.styles';
 
+const initialState = {
+  email: '',
+  password: '',
+};
+
 class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      ...initialState,
     };
   }
 
@@ -27,6 +31,7 @@ class SignIn extends Component {
     const { email, password } = this.state;
 
     emailSighInStart(email, password);
+    this.setState(initialState);
   };
 
   handleChange = (e) => {

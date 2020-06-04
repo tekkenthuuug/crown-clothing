@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { firestore } from '../../firebase/firebase.utils';
 import { convertCollectionsSnapshotToMap } from './shop.utils';
 
@@ -8,13 +8,6 @@ import {
   fecthCollectionsSuccess,
   fetchCollectionsFailure,
 } from './shop.actions';
-
-export function* fetchCollectionsStart() {
-  yield takeLatest(
-    shopActionTypes.FETCH_COLLECTIONS_START,
-    fetchCollectionsAsync
-  );
-}
 
 export function* fetchCollectionsAsync() {
   try {
@@ -28,4 +21,14 @@ export function* fetchCollectionsAsync() {
   } catch (error) {
     yield put(fetchCollectionsFailure());
   }
+}
+export function* fetchCollectionsStart() {
+  yield takeLatest(
+    shopActionTypes.FETCH_COLLECTIONS_START,
+    fetchCollectionsAsync
+  );
+}
+
+export default function* shopSagas() {
+  yield all([call(fetchCollectionsStart)]);
 }
