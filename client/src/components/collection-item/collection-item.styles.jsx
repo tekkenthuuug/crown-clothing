@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../device';
 
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -15,6 +16,14 @@ export const StyledCustomButton = styled(CustomButton)`
   position: absolute;
   top: 255px;
   display: none;
+  opacity: 0.7;
+
+  @media ${device.mobile} {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const CollectionItemContainer = styled.div`
@@ -34,6 +43,20 @@ export const CollectionItemContainer = styled.div`
       opacity: 0.8;
     }
   }
+
+  @media ${device.mobile} {
+    width: 40vw;
+
+    &:hover {
+      ${StyledCustomButton} {
+        opacity: unset;
+      }
+
+      ${StyledImg} {
+        opacity: unset;
+      }
+    }
+  }
 `;
 
 export const CollectionFooter = styled.div`
@@ -45,11 +68,8 @@ export const CollectionFooter = styled.div`
 `;
 
 export const Name = styled.span`
-  width: 90%;
   margin-bottom: 15px;
   text-transform: uppercase;
 `;
 
-export const Price = styled.span`
-  width: 10%;
-`;
+export const Price = styled.span``;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../device';
 
 export const BackgroundImage = styled.div`
   background-position: center;
@@ -59,6 +60,10 @@ export const MenuItemContainer = styled.div`
     & ${Content} {
       opacity: 0.9;
     }
+  }
+
+  @media ${device.mobile} {
+    height: 200px;
   }
 `;
 

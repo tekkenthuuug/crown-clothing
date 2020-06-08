@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../device';
 
 export const CheckoutContainer = styled.div`
   width: 55%;
@@ -11,6 +12,10 @@ export const CheckoutContainer = styled.div`
   button {
     margin-left: auto;
     margin-top: 50px;
+  }
+
+  @media ${device.mobile} {
+    width: 90%;
   }
 `;
 
@@ -27,7 +32,13 @@ export const HeaderBlock = styled.div`
   width: 23%;
 
   &:last-child {
-    width: 8%;
+    width: 6%;
+  }
+
+  @media ${device.mobile} {
+    &:last-child {
+      width: 12%;
+    }
   }
 `;
 
