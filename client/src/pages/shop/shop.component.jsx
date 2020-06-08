@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 import { fecthCollectionsStart } from '../../redux/shop/shop.actions';
 
-import CollectionPageContainer from '../collection/collection.container';
-import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
+const CollectionPageContainer = lazy(() =>
+  import('../collection/collection.container')
+);
+const CollectionsOverviewContainer = lazy(() =>
+  import('../../components/collections-overview/collections-overview.container')
+);
 
 const ShopPage = ({ fecthCollectionsStart, match }) => {
   useEffect(() => {

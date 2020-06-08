@@ -65,6 +65,7 @@ export const CollectionFooter = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  padding: 0 4px;
 `;
 
 export const Name = styled.span`
