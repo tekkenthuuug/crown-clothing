@@ -8,6 +8,7 @@ import {
   signUpFailure,
   signUpSuccess,
 } from './user.actions';
+
 import { getCurrentUser } from '../../firebase/firebase.utils';
 
 import userActionTypes from './user.types';
@@ -26,6 +27,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
       additionalData
     );
     const userSnapshot = yield userRef.get();
+
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (error) {
     yield put(signInFailure(error));

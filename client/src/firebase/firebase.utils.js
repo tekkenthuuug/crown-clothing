@@ -18,9 +18,9 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
-  const snapShot = await userRef.get();
+  const userSnapShot = await userRef.get();
 
-  if (!snapShot.exists) {
+  if (!userSnapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
@@ -62,6 +62,26 @@ export const getCurrentUser = () => {
       resolve(userAuth);
     }, reject);
   });
+};
+
+export const createUserCartRef = async (userId, cartItemsMap) => {
+  if (!userId) return;
+
+  const cartRef = firestore.doc(`carts/${userId}`);
+
+  const cartSnapShot = await cartRef.get();
+
+  if (!cartSnapShot.exists) {
+    try {
+      await cartRef.set({
+        cartItems: cartItemsMap,
+      });
+    } catch (error) {
+      console.log('Error creating cart', error.message);
+    }
+  }
+
+  return cartRef;
 };
 
 firebase.initializeApp(config);
