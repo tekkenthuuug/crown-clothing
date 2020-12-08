@@ -3,14 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyA6hDEx39INqBxbw2jlEFpu11gjdKVwFEU',
-  authDomain: 'crown-db-14801.firebaseapp.com',
-  databaseURL: 'https://crown-db-14801.firebaseio.com',
-  projectId: 'crown-db-14801',
-  storageBucket: 'crown-db-14801.appspot.com',
-  messagingSenderId: '1054663133275',
-  appId: '1:1054663133275:web:d84824f47716295938577e',
-  measurementId: 'G-M35LY670Q8',
+  apiKey: 'AIzaSyCkIEM63XUE_7yUa9xkD1YA3X1JTWVZ1Fo',
+  authDomain: 'crown-clothing-aede2.firebaseapp.com',
+  projectId: 'crown-clothing-aede2',
+  storageBucket: 'crown-clothing-aede2.appspot.com',
+  messagingSenderId: '697531739379',
+  appId: '1:697531739379:web:1638222047237877571b86',
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -47,7 +45,7 @@ export const addCollectionAndDocuments = async (
 
   const batch = firestore.batch();
 
-  objectsToAdd.forEach((obj) => {
+  objectsToAdd.forEach(obj => {
     const newDocRef = collectionRef.doc();
     batch.set(newDocRef, obj);
   });
@@ -57,7 +55,7 @@ export const addCollectionAndDocuments = async (
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
       unsubscribe();
       resolve(userAuth);
     }, reject);
